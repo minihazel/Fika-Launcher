@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fika-Launcher", "Fika-Launcher.csproj", "{92454EEA-E7E6-4274-9C2C-DCEDACDA2789}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92454EEA-E7E6-4274-9C2C-DCEDACDA2789}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92454EEA-E7E6-4274-9C2C-DCEDACDA2789}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92454EEA-E7E6-4274-9C2C-DCEDACDA2789}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92454EEA-E7E6-4274-9C2C-DCEDACDA2789}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
