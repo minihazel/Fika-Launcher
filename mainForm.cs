@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 
@@ -54,11 +55,72 @@ namespace Fika_Launcher
         {
             if (doesConfigExist())
             {
-                mainPanel.BringToFront();
+                loadFeatures();
             }
             else
             {
                 createConfig(false);
+                initializeApp();
+            }
+        }
+
+        public void loadFeatures()
+        {
+            mainPanel.BringToFront();
+
+            if (doesConfigExist())
+            {
+                if (configFile != null)
+                {
+                    string json = File.ReadAllText(configFile);
+                    Config? loadedConfig = JsonConvert.DeserializeObject<Config>(json);
+
+                    if (loadedConfig != null)
+                    {
+                        if (loadedConfig.EnableMod)
+                        {
+                            btnStatus.ForeColor = Color.DodgerBlue;
+                            btnStatus.Text = "MOD ENABLED" + Environment.NewLine + Environment.NewLine +
+                                             "✔️";
+                        }
+                        else
+                        {
+                            btnStatus.ForeColor = Color.IndianRed;
+                            btnStatus.Text = "MOD DISABLED" + Environment.NewLine + Environment.NewLine +
+                                             "✖️";
+                        }
+
+                        if (loadedConfig.RunLauncher)
+                        {
+                            btnRunLauncher.ForeColor = Color.DodgerBlue;
+                            btnRunLauncher.Text = "RUN LAUNCHER" + Environment.NewLine + Environment.NewLine +
+                                             "✔️";
+                        }
+                        else
+                        {
+                            btnRunLauncher.ForeColor = Color.IndianRed;
+                            btnRunLauncher.Text = "RUN LAUNCHER" + Environment.NewLine + Environment.NewLine +
+                                             "✖️";
+                        }
+
+                        if (!string.IsNullOrEmpty(loadedConfig.PlayerDir))
+                        {
+                            gamePath.Text = loadedConfig.PlayerDir.ToString();
+                        }
+                        else
+                        {
+                            gamePath.Text = "Unrecognized string format, please reset the application";
+                        }
+
+                        btnLaunchDelay.Text = "LAUNCH DELAY" + Environment.NewLine + Environment.NewLine +
+                                              $"{loadedConfig.TimeoutSeconds.ToString()}s";
+                    }
+
+                    File.WriteAllText(configFile, JsonConvert.SerializeObject(loadedConfig, Formatting.Indented));
+                }
+            }
+            else
+            {
                 initializeApp();
             }
         }

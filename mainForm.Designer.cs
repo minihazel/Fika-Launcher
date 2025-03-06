@@ -236,8 +236,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 28, 30);
             ClientSize = new Size(388, 388);
-            Controls.Add(dirPanel);
             Controls.Add(mainPanel);
+            Controls.Add(dirPanel);
             DoubleBuffered = true;
             Font = new Font("Bahnschrift Light", 16F);
             ForeColor = Color.LightGray;
