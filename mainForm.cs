@@ -109,7 +109,7 @@ namespace Fika_Launcher
                         }
                         else
                         {
-                            gamePath.Text = "Unrecognized string format, please reset the application";
+                            gamePath.Text = "No path recognized, please browse for an SPT installation";
                         }
 
                         btnLaunchDelay.Text = "LAUNCH DELAY" + Environment.NewLine + Environment.NewLine +
