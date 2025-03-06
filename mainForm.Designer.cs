@@ -35,6 +35,7 @@
             btnRunLauncher = new Button();
             btnStatus = new Button();
             dirPanel = new Panel();
+            btnReset = new Button();
             panelSeparator = new Panel();
             btnBrowse = new Button();
             gamePath = new RichTextBox();
@@ -64,12 +65,13 @@
             btnPlayerDir.FlatAppearance.MouseDownBackColor = Color.FromArgb(36, 38, 40);
             btnPlayerDir.FlatAppearance.MouseOverBackColor = Color.FromArgb(36, 38, 40);
             btnPlayerDir.FlatStyle = FlatStyle.Flat;
-            btnPlayerDir.Font = new Font("Bahnschrift", 14F);
+            btnPlayerDir.Font = new Font("Bahnschrift", 12F);
+            btnPlayerDir.ForeColor = Color.LightGray;
             btnPlayerDir.Location = new Point(184, 3);
             btnPlayerDir.Name = "btnPlayerDir";
             btnPlayerDir.Size = new Size(175, 175);
             btnPlayerDir.TabIndex = 4;
-            btnPlayerDir.Text = "PLAYER FOLDER\r\n\r\n🔍";
+            btnPlayerDir.Text = "OPTIONS\r\n\r\n🔗";
             btnPlayerDir.UseVisualStyleBackColor = false;
             btnPlayerDir.Click += btnPlayerDir_Click;
             btnPlayerDir.MouseDown += btnPlayerDir_MouseDown;
@@ -83,7 +85,8 @@
             btnLaunchDelay.FlatAppearance.MouseDownBackColor = Color.FromArgb(36, 38, 40);
             btnLaunchDelay.FlatAppearance.MouseOverBackColor = Color.FromArgb(36, 38, 40);
             btnLaunchDelay.FlatStyle = FlatStyle.Flat;
-            btnLaunchDelay.Font = new Font("Bahnschrift", 14F);
+            btnLaunchDelay.Font = new Font("Bahnschrift", 12F);
+            btnLaunchDelay.ForeColor = Color.MediumSeaGreen;
             btnLaunchDelay.Location = new Point(184, 184);
             btnLaunchDelay.Name = "btnLaunchDelay";
             btnLaunchDelay.Size = new Size(175, 175);
@@ -102,7 +105,8 @@
             btnRunLauncher.FlatAppearance.MouseDownBackColor = Color.FromArgb(36, 38, 40);
             btnRunLauncher.FlatAppearance.MouseOverBackColor = Color.FromArgb(36, 38, 40);
             btnRunLauncher.FlatStyle = FlatStyle.Flat;
-            btnRunLauncher.Font = new Font("Bahnschrift", 14F);
+            btnRunLauncher.Font = new Font("Bahnschrift", 12F);
+            btnRunLauncher.ForeColor = Color.DodgerBlue;
             btnRunLauncher.Location = new Point(3, 184);
             btnRunLauncher.Name = "btnRunLauncher";
             btnRunLauncher.Size = new Size(175, 175);
@@ -121,18 +125,20 @@
             btnStatus.FlatAppearance.MouseDownBackColor = Color.FromArgb(36, 38, 40);
             btnStatus.FlatAppearance.MouseOverBackColor = Color.FromArgb(36, 38, 40);
             btnStatus.FlatStyle = FlatStyle.Flat;
-            btnStatus.Font = new Font("Bahnschrift", 14F);
+            btnStatus.Font = new Font("Bahnschrift", 12F);
+            btnStatus.ForeColor = Color.DodgerBlue;
             btnStatus.Location = new Point(3, 3);
             btnStatus.Name = "btnStatus";
             btnStatus.Size = new Size(175, 175);
             btnStatus.TabIndex = 1;
-            btnStatus.Text = "ENABLED\r\n\r\n✔️";
+            btnStatus.Text = "MOD ENABLED\r\n\r\n✔️";
             btnStatus.UseVisualStyleBackColor = false;
             btnStatus.Click += btnStatus_Click;
             btnStatus.MouseDown += btnStatus_MouseDown;
             // 
             // dirPanel
             // 
+            dirPanel.Controls.Add(btnReset);
             dirPanel.Controls.Add(panelSeparator);
             dirPanel.Controls.Add(btnBrowse);
             dirPanel.Controls.Add(gamePath);
@@ -142,12 +148,31 @@
             dirPanel.Size = new Size(362, 362);
             dirPanel.TabIndex = 1;
             // 
+            // btnReset
+            // 
+            btnReset.BackColor = Color.FromArgb(32, 34, 36);
+            btnReset.Cursor = Cursors.Hand;
+            btnReset.FlatAppearance.BorderColor = SystemColors.WindowFrame;
+            btnReset.FlatAppearance.BorderSize = 0;
+            btnReset.FlatAppearance.MouseDownBackColor = Color.FromArgb(36, 38, 40);
+            btnReset.FlatAppearance.MouseOverBackColor = Color.FromArgb(36, 38, 40);
+            btnReset.FlatStyle = FlatStyle.Flat;
+            btnReset.Font = new Font("Bahnschrift", 12F);
+            btnReset.ForeColor = Color.IndianRed;
+            btnReset.Location = new Point(184, 184);
+            btnReset.Name = "btnReset";
+            btnReset.Size = new Size(175, 175);
+            btnReset.TabIndex = 9;
+            btnReset.Text = "RESET\r\n\r\n🔃";
+            btnReset.UseVisualStyleBackColor = false;
+            btnReset.Click += btnReset_Click;
+            // 
             // panelSeparator
             // 
             panelSeparator.BorderStyle = BorderStyle.FixedSingle;
-            panelSeparator.Location = new Point(3, 193);
+            panelSeparator.Location = new Point(3, 184);
             panelSeparator.Name = "panelSeparator";
-            panelSeparator.Size = new Size(356, 1);
+            panelSeparator.Size = new Size(175, 10);
             panelSeparator.TabIndex = 8;
             panelSeparator.Visible = false;
             // 
@@ -160,7 +185,8 @@
             btnBrowse.FlatAppearance.MouseDownBackColor = Color.FromArgb(36, 38, 40);
             btnBrowse.FlatAppearance.MouseOverBackColor = Color.FromArgb(36, 38, 40);
             btnBrowse.FlatStyle = FlatStyle.Flat;
-            btnBrowse.Font = new Font("Bahnschrift", 14F);
+            btnBrowse.Font = new Font("Bahnschrift", 12F);
+            btnBrowse.ForeColor = Color.DodgerBlue;
             btnBrowse.Location = new Point(3, 3);
             btnBrowse.Name = "btnBrowse";
             btnBrowse.Size = new Size(175, 175);
@@ -175,12 +201,12 @@
             gamePath.BackColor = Color.FromArgb(26, 28, 30);
             gamePath.BorderStyle = BorderStyle.None;
             gamePath.Cursor = Cursors.Hand;
-            gamePath.Font = new Font("Bahnschrift Light", 12F);
+            gamePath.Font = new Font("Bahnschrift Light", 8F);
             gamePath.ForeColor = Color.LightGray;
-            gamePath.Location = new Point(3, 214);
+            gamePath.Location = new Point(3, 200);
             gamePath.Name = "gamePath";
             gamePath.ReadOnly = true;
-            gamePath.Size = new Size(356, 145);
+            gamePath.Size = new Size(175, 159);
             gamePath.TabIndex = 6;
             gamePath.Text = "";
             gamePath.TextChanged += gamePath_TextChanged;
@@ -195,7 +221,7 @@
             btnBack.FlatAppearance.MouseDownBackColor = Color.FromArgb(36, 38, 40);
             btnBack.FlatAppearance.MouseOverBackColor = Color.FromArgb(36, 38, 40);
             btnBack.FlatStyle = FlatStyle.Flat;
-            btnBack.Font = new Font("Bahnschrift", 14F);
+            btnBack.Font = new Font("Bahnschrift", 12F);
             btnBack.Location = new Point(184, 3);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(175, 175);
@@ -241,5 +267,6 @@
         private RichTextBox gamePath;
         private Button btnBrowse;
         private Panel panelSeparator;
+        private Button btnReset;
     }
 }
