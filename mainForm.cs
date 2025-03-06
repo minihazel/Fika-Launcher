@@ -6,7 +6,7 @@ namespace Fika_Launcher
 {
     public partial class mainForm : Form
     {
-        public string currentEnv = "D:\\SPT Iterations\\SPT 3.10 Server\\user\\mods\\LaunchFikaProfile";
+        public string currentEnv = Environment.CurrentDirectory;
         public string? SPTServer = null;
         public string? SPTLauncher = null;
         public string? SPTData = null;
